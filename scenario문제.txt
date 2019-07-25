@@ -1,0 +1,48 @@
+ 
+*그해 여름 ecore 워크샵에서는 무슨일이 있었나
+
+SCENARIO_1) 오늘로부터 정확히 한달 뒤에 워크샵을 떠날 예정이다. 하지만 아직 장소는 미정! 그래서 막내인 동기들이 발 벗고 나섰다.
+
+	RQ_1) 한달 뒤 날짜를 구하시오.
+	RQ_2) 사원 중 막내를 찾으시오.	(출력 정보는 이름(FIRST_NAME), 성(LAST_NAME), 입사일(HIRE_DATE))
+
+SCENARIO_2) 워크샵을 순조롭게 마친 뒤, 사내 커플이 생겼다는 소문이 돌기 시작했다. 여자 사원은 사장님의 딸이라고 한다. 인사과 익명의 사원 X는 그게 누군지 궁금해졌다.
+
+	RQ_3) 사내 커플 여사원의 이름, 성, 부서 번호를 출력하시오.
+
+SCENARIO_3) 사원 X는 정보를 탐색하던 중 남자 사원의 이니셜이 G(LAST_NAME), D(FIRST_NAME)이고 부서는 Shipping이라는 사실을 알아냈다. 
+	평소 회사에 대한 충성심이 높던 X는 사장님께 남자 사원의 정보를 보고하려고 한다.
+
+	RQ_4) 남사원의 모든 정보를 출력하시오.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ANSWER)
+
+	RQ_1) SELECT SYSDATE, ADD_MONTHS(SYSDATE, 1) FROM DUAL;
+	
+	RQ_2) 
+		Process_1) SELECT FIRST_NAME, LAST_NAME, HIRE_DATE FROM EMPLOYEES ORDER BY HIRE_DATE ASC; 
+		Process_2) SELECT FIRST_NAME, LAST_NAME, HIRE_DATE FROM EMPLOYEES WHERE HIRE_DATE = '08/04/21'; 
+		
+	RQ_3) 
+		Process_1) SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, MANAGER_ID FROM EMPLOYEES;
+		Process_2) SELECT FIRST_NAME, LAST_NAME FROM EMPLOYEES WHERE LAST_NAME ='King';
+		Process_3) SELECT FIRST_NAME, LAST_NAME, DEPARTMENT_ID FROM EMPLOYEES WHERE FIRST_NAME = 'Janette' AND LAST_NAME ='King';
+	
+	RQ_4)
+		Process_1) SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_NAME = 'Shipping';
+		Process_2) SELECT FIRST_NAME, LAST_NAME FROM EMPLOYEES WHERE FIRST_NAME LIKE 'D%' AND LAST_NAME LIKE 'G%' AND DEPARTMENT_ID = '50'; 
+		
+		

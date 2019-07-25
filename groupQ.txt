@@ -1,0 +1,7 @@
+1. 직업별 평균급여를 알고싶다. 직업과 그 직업의 평균급여를 오름차순으로 정렬하세요.   (평균급여 별칭 부탁)
+
+ A) SELECT JOB, AVG(SAL) AS 평균급여 FROM EMP GROUP BY JOB ORDER BY AVG(SAL) ASC;
+
+2. 직업별 평균급여가 2000이상인 직업들을 정렬하고. 보기 좋게 오름차순으로 정렬해주세요. (평균급여 별칭 부탁)
+
+ A) SELECT JOB, AVG(SAL) AS 평균급여 FROM EMP GROUP BY JOB HAVING AVG(SAL) >= 2000 ORDER BY AVG(SAL) ASC;
